@@ -1,0 +1,15 @@
+{
+  "name": "vendor_name/htdocs",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Lesik",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    
+  }
+}
