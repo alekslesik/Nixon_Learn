@@ -85,7 +85,7 @@ final class TodoValidator {
             throw new NotFoundException('Unknown priority: ' . $priority);
         }
     }
-
+    //is array include status
     private static function isValidStatus($status) {
         return in_array($status, Todo::allStatuses());
     }

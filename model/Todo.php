@@ -71,6 +71,7 @@ final class Todo {
         $this->setDeleted(false);
     }
 
+    // array of all statuses
     public static function allStatuses() {
         return [
             self::STATUS_PENDING,

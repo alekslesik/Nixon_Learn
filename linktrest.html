@@ -5,10 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-<a id="mylink" href="http://mysite.com">Click</a>
 <script>
-    url = document.links.mylink.href
-    document.write('URL-адрес - ' + url)
+    onerror = errorHandler;
+    document.write("Welcome to site!")
+    function errorHandler(message, url, line) {
+        out = "Unfortunately a error was detected. \n\n "
+        out += "Error: " + message + "\n"
+        out += "String: " + line + "\n\n"
+        out += "Press OK button to continue. \n\n"
+        alert(out)
+        return true
+    }
 </script>
 </body>
 </html>

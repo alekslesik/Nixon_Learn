@@ -25,13 +25,17 @@ use \TodoList\Dao\TodoSearchCriteria;
 use \TodoList\Util\Utils;
 use \TodoList\Validation\TodoValidator;
 
+//@return string; get value from a key 'status' from array $_GET
 $status = Utils::getUrlParam('status');
+//validate $status who has got above; if not valid then throw exception
 TodoValidator::validateStatus($status);
-
+//create object TodoDao
 $dao = new TodoDao();
+//@return object TodoSearchCriteria; get object with set $status
 $search = (new TodoSearchCriteria())
         ->setStatus($status);
 
-// data for template
+//@return string; capitalize $status
 $title = Utils::capitalize($status) . ' TODOs';
+//@get object TodoSearchCriteria; @return
 $todos = $dao->find($search);

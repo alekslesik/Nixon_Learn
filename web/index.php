@@ -136,7 +136,7 @@ final class Index {
         }
     }
 
-    private function getScript($page) {
+    private function getScript($page) { //return file name and directory
         return self::PAGE_DIR . $page . '.php';
     }
 
@@ -144,7 +144,7 @@ final class Index {
         return self::PAGE_DIR . $page . '.phtml';
     }
 
-    private function hasScript($page) {
+    private function hasScript($page) { //is file script or not?
         return file_exists($this->getScript($page));
     }
 
