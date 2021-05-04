@@ -1,0 +1,80 @@
+<!-- HTML and JavaScript part -->
+<style>
+    .signup {
+        border: 1px solid #999999;
+        font: normal 14px helvetica;
+        color: #444444;
+    }
+
+    .error {
+        color: red;
+    }
+</style>
+<script>
+    function validate(form) {
+        let fail = validateForename(form.forename.value)
+        fail += validateSurname(form.surname.value)
+        fail += validateUsername(form.username.value)
+        fail += validatePassword(form.password.value)
+        fail += validateAge(form.age.value)
+        fail += validateEmail(form.email.value)
+
+        if (fail === "") return true
+        else {
+            alert(fail);
+            return false
+        }
+    }
+</script>
+
+<script src="validate_functions.js"></script>
+
+</head>
+<body>
+<table class="signup" border="0" cellpadding="2" cellspacing="5" bgcolor="#eeeeee">
+    <th colspan="2" align="center">Registration form</th>
+    <tr>
+        <td colspan="2"> Unfortunately in Your form <br>
+            has found the next errors:
+            <div class="error"><i><?php echo $fail; ?></i></div>
+        </td>
+    </tr>
+    <form method="post" action="adduser.php" onsubmit="return validate(this)">
+        <tr>
+            <td>Name</td>
+            <td>
+                <input type="text" maxlength="32" name="forename" value="<?php echo $forename; ?>"></td>
+        </tr>
+        <tr>
+            <td>Surname</td>
+            <td>
+                <input type="text" maxlength="32" name="surname" value="<?php echo $surname; ?>"></td>
+        </tr>
+        <tr>
+            <td>Username</td>
+            <td>
+                <input type="text" maxlength="16" name="username" value="<?php echo $username; ?>"></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>
+                <input type="text" maxlength="12" name="password" value="<?php echo $password; ?>"></td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td>
+                <input type="text" maxlength="3" name="age" value="<?php echo $age; ?>"></td>
+        </tr>
+        <tr>
+            <td>E-mail</td>
+            <td>
+                <input type="text" maxlength="64" name="email" value="<?php echo $email; ?>"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="Sing up"></td>
+        </tr>
+    </form>
+</table>
+</body>
+</html>

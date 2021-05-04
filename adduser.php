@@ -1,31 +1,55 @@
 <?php
 
-$forename = $surname = $username = $password = $age = $email = $fail = "";
+$forename = $surname = $username = $password = $age = $email = "";
 
 if (isset($_POST['forename'])) {
-    $fail = validate_forename(fix_string($_POST['forename']));
+    $forename = fix_string($_POST['forename']);
+//    $fail = validate_forename(fix_string($_POST['forename']));
 }
 
 if (isset($_POST['surname'])) {
-    $fail .= validate_surname(fix_string($_POST['surname']));
+    $surname = fix_string($_POST['surname']);
+//    $fail .= validate_surname(fix_string($_POST['surname']));
 }
 
 if (isset($_POST['username'])) {
-    $fail .= validate_username(fix_string($_POST['username']));
+    $username = fix_string($_POST['username']);
+//    $fail .= validate_username(fix_string($_POST['username']));
 }
 
 if (isset($_POST['password'])) {
-    $fail .= validate_password(fix_string($_POST['password']));
+    $password = fix_string($_POST['password']);
+//    $fail .= validate_password(fix_string($_POST['password']));
 }
 
 if (isset($_POST['age'])) {
-    $fail .= validate_age(fix_string($_POST['age']));
+    $age = fix_string($_POST['age']);
+//    $fail .= validate_age(fix_string($_POST['age']));
 }
 
 if (isset($_POST['email'])) {
-    $fail .= validate_email(fix_string($_POST['email']));
+    $email = fix_string($_POST['email']);
+//    $fail .= validate_email(fix_string($_POST['email']));
 }
 
+$fail = validate_forename($forename);
+$fail .= validate_surname($surname);
+$fail .= validate_username($username);
+$fail .= validate_password($password);
+$fail .= validate_age($age);
+$fail .= validate_email($email);
+
+echo "<!DOCTYPE html>\n<html><head><title>Form sample</title>";
+
+if ($fail == "")
+{
+    echo "</head><body>Form validation is successful:
+    $forename, $surname, $username, $password, $age, $email.</body></html>";
+    // In this place received fields will input in database using hash encoding
+    exit;
+}
+
+require_once 'validate.phtml';
 
 /**
  * Convert all applicable characters to HTML entities
@@ -44,7 +68,7 @@ function fix_string($string)
  */
 function validate_forename($forename)
 {
-    return ($forename == "" ? "Name has't inputted<br>" : "");
+    return ($forename == "" ? "Name hasn't inputted<br>" : "");
 }
 
 /**
@@ -54,7 +78,7 @@ function validate_forename($forename)
  */
 function validate_surname($surname)
 {
-    return ($surname == "" ? "Surname has't inputted<br>" : "");
+    return ($surname == "" ? "Surname hasn't inputted<br>" : "");
 }
 
 /**
