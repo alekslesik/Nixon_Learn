@@ -11,7 +11,7 @@ function validateUsername(field) {
     else if (field.length < 5)
         return "Username must have 5 or more symbols.\n"
     else if (/[^a-zA-Z0-9_-]/.test(field))
-        return "Username require one symbol of each set a-z, A-Z and 0-9 - and _.\n"
+        return "Username require letters, numbers or _.\n"
     return ""
 }
 
