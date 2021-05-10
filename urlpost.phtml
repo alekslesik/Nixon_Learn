@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- urlpost.phtml-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Async data exchange samlpe</title>
+    <script src="asyncRequest.js"></script>
+</head>
+<body style="text-align: center">
+    <h1>Downloading web-page to container DIV</h1>
+    <div id="info">This sentence will be replaced</div>
+    <script>
+        params = "url=news.com"
+        request = new asyncRequest()
+        request.open("POST", "urlpost.php", true)
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+        request.setRequestHeader("Content-length", params.length)
+        request.setRequestHeader("Connection", "close")
+
+        request.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                if (this.status === 200) {
+                    if (this.responseText != null) {
+                        document.getElementById('info').innerHTML = this.responseText
+                    }
+                    else alert("Data exchange error: Data hasn't got")
+                }
+                else alert("Data exchange error: " + this.statusText)
+            }
+        }
+
+        request.send(params)
+
+    </script>
+</body>
+</html>

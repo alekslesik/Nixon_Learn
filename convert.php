@@ -29,7 +29,7 @@ echo <<<_END
 </html>
 _END;
 
-function sanitizeString($var) {
+function sanitizeString_($var) {
     $var = stripslashes($var);
     $var = strip_tags($var);
     $var = htmlentities($var);

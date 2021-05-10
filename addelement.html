@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add element</title>
+    <script src="OSC.js"></script>
+</head>
+<body>
+This document contains only this text
+<script>
+    alert('To add element press OK button')
+
+    newdiv = document.createElement('div')
+    newdiv.id = 'NewDiv'
+    document.body.appendChild(newdiv)
+    S(newdiv).border = 'solid 1px red'
+    S(newdiv).width = '100px'
+    S(newdiv).height = '100px'
+    newdiv.innerHTML = 'This is new object, pasted in DOM'
+    tmp = newdiv.offsetTop
+</script>
+</body>
+</html>
