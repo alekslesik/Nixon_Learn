@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>blur and focus sample</title>
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <h2>Click within and not within this areas</h2>
+    <input id="first"> <input><input> <input>
+    <script>
+        //focus by load document
+        $('#first').focus()
+        $('input').focus(function () {
+            $(this).css('background', '#ff0')
+        })
+        $('input').blur(function () {
+            $(this).css('background', '#aaa')
+        })
+    </script>
+
+</body>
+</html>
