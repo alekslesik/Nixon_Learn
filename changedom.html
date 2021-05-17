@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Change DOM</title>
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous">
+    </script>
+</head>
+<body>
+<h2>Document example</h2>
+<a href="http://google.com" title="Google">Visit Google</a>
+<code>
+    This is code chapter
+</code>
+<p>
+    <button id="a">Delete img</button>
+    <button id="b">Clear quote</button>
+</p>
+
+<img src="ball.webp" alt="Ball" id="ball">
+<blockquote id="quote" style="border: 1px dotted #444; height: 20px">
+    test
+</blockquote>
+<script>
+    $('a').prepend('Link: ')
+    $("[href^='http']").append(" <img src='link.jpg'>")
+    $('code').before('<hr>').after('<hr>')
+    $('#a').click(function () {
+        $('#ball').remove()
+    })
+    $('#b').click(function () {
+        $('#quote').empty()
+    })
+</script>
+</body>
+</html>

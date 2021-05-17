@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animate</title>
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous">
+    </script>
+    <style>
+        #ball {
+            position: relative;
+        }
+        #box {
+            width: 640px;
+            height: 480px;
+            background: green;
+            border: 1px solid #444;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="ball.webp" alt="ball" id="ball">
+    </div>
+    <script>
+        bounce()
+
+        function bounce() {
+            $('#ball')
+            .animate( { left:'270px', top:'380px'}, 'slow', 'linear' )
+            .animate( { left:'540px', top:'190px'}, 'slow', 'linear' )
+            .animate( { left:'270px', top:'0px'},   'slow', 'linear' )
+            .animate( { left:'0px', top:'190px'},   'slow', 'linear' )
+        }
+
+        $('#ball').click( function () {
+            $(this).finish()
+
+        } )
+    </script>
+</body>
+</html>
