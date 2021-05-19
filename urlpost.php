@@ -6,7 +6,7 @@
 
 /**
  * Sanitize input string
- * @param $var string
+ * @param $var string to sanitize
  * @return string
  */
 function sanitizeString($var)
