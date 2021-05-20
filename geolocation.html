@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geolocation sample</title>
+</head>
+<body>
+<script>
+    if (typeof navigator.geolocation == 'undefined') {
+        alert("Geolocation is't supported")
+    }
+    else navigator.geolocation.getCurrentPosition(granted, denied)
+
+    function granted(position) {
+        let lat = position.coords.latitude
+        let long = position.coords.longitude
+
+        alert("Permission has got. Your placement:\n\n" +
+            lat + ", " + long +
+        "\n\nClick on button OK for downloading Google Maps with your placement")
+    }
+
+    function denied(error) {
+        let message
+        switch (error.code) {
+            case 1: message = 'Permission denied'; break;
+            case 2: message = "Position isn't access"; break;
+            case 3: message = "Timeout expired"; break;
+            case 4: message = "Unknown error"; break;
+        }
+
+        alert("Geolocation error: " + message)
+    }
+</script>
+
+</body>
+</html>
